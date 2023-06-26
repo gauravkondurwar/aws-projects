@@ -1,0 +1,276 @@
+Project: How do I stop and start Amazon EC2 instances at regular intervals using Lambda:
+Description :
+In your IT real-time world, we may need to schedule the EC2 instance or RDS instance to restart at regular intervals; it all depends on the needs of your project (it could be hourly, daily, weekly, or monthly). We have multiple ways to do this job.
+For instance, we can use the corn jobs (Linux) or schedule tasks" (Windows) to run the script. and yet another method for performing a manual restart.
+However, in AWS, we have a serverless service to handle this task which is LAMBDA.
+Synopsis:
+Scenario 1: I want to reduce my Amazon Elastic Compute Cloud (Amazon EC2) usage by stopping and starting my EC2 instances automatically.
+Scenario 2: Create an IAM policy and execution role for your Lambda function
+Scenario 3: Create Lambda functions that stop and start your EC2 instances
+Scenario 3: Create Lambda functions that stop and start your EC2 instances
+Scenario 4: Check the status of your EC2 instances
+Scenario 5: Create EventBridge rules that run your Lambda functions
+
+
+
+Short description
+You can use AWS Lambda and Amazon EventBridge to automatically stop and start EC2 instances.
+To use Lambda to stop and start EC2 instances at regular intervals, complete the following steps:
+
+To use Lambda to stop and start EC2 instances at regular intervals, complete the following steps:
+1.    Create a custom AWS Identity and Access Management (IAM) policy and execution role for your Lambda function.
+2.    Create Lambda functions that stop and start your EC2 instances.
+3.    Test your Lambda functions.
+4.    Create EventBridge rules that run your function on a schedule.
+
+
+
+
+Step 1: Open AWS Console and create one EC2 Instance.
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Step 2: Create an IAM policy and execution role for  Lambda function
+1:    Create an IAM policy using the JSON policy editor
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+2: Create an IAM role for Lambda.
+     Attach a permissions policy to Lambda,  choose the IAM policy that  just created.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Step 3:  Create Lambda functions that stop and start EC2 instances
+1.    Open the Lambda console, and then choose Create function.
+2.    Choose Author from scratch.
+3.    Under Basic information, add the following information:
+For Function names, enter a name that identifies it as the function that's used to stop & Start EC2 instances. “StopEC2Instances” & “StopEC2Instances” .
+For Runtime, I have chosen  Python 3.9.
+Under Permissions, expand Change default execution role.
+Under Execution role, choose Use an existing role.
+Under Existing role, choose the IAM role that created.
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Step 4: Under code edit code source to stop EC2 instances.
+1: Choose Deploy.
+2: configure test event
+3: On the Configuration tab, choose General configuration, Edit. Set Timeout to 10 seconds, and then choose Save and Test
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Step 5: now I  can check the status of EC2 instances before and after testing to confirm that functions work as expected.
+
+ 
+
+
+
+
+
+1: functions worked Instance Stopped.
+ 
+
+2: Now Create function to start instance ( same as step 4&5 )
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+3: functions worked Instance Running.
+
+ 
+
+
+
+
+
+Step 5: I can check  the logs in view logs.
+
+ 
+
+ 
+
+
+
+
+
+Step 6: Create EventBridge rules that run Lambda functions:
+1.    Open the EventBridge console.
+2.    Select Create rule.
+3.    Enter a Name for rule, such as "StopEC2Instances". (Optional) Enter a description for the rule in Description.
+4.    For Rule type, choose Schedule, and then choose Continue in EventBridge Scheduler.
+5.    For Schedule pattern, choose Recurring schedule. following steps:
+Under Schedule pattern, for Occurrence, choose Recurring schedule. Then complete following steps:
+Schedule type is Cron-based schedule, for Cron expression, enter an expression that tells Lambda when to stop instance. For information on expression syntax, see Schedule expressions for rules.
+Cron expressions are evaluated in UTC, so adjust the expression for preferred time zone.
+6.    In Select targets, choose Lambda function from the Target dropdown list.
+7.    For Function, choose the function that stops EC2 instances.
+8.    Choose Skip to review and create, and then choose Create.
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Cron-based Scheduled Expression worked instance Stopped
+
+ 
+
+
+
+
+
+Step 7:  Repeat steps 1-8 to create a rule to start EC2 instances.  following steps:
+Enter a name for rule, such as "StartEC2Instances".
+(Optional) In Description, enter a description for rule.
+In step 5, for Cron expression, enter an expression that tells Lambda when to start instances.
+In step 7, for Function, choose the function that starts your EC2 instances.
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+Cron-based Scheduled Expression worked instance Running.
+
+ 
+
+we can create schedule expression rule using UTC time zone like date, time (minutes, hours), day of month, weeks, years but i have used small pacific time zone like 9:22 AM & 9:35 AM to stop and start ec2-instances for self-practice & show to how Event-Bridge rule works in this Project.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
