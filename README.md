@@ -29,6 +29,9 @@ To use Lambda to stop and start EC2 instances at regular intervals, complete the
 
 Step 1: Open AWS Console and create one EC2 Instance.
 ![image](https://github.com/gauravkondurwar/aws-projects/assets/135307780/79d21c07-f33b-44ec-b4bb-35a3d9e9dd71)
+![image](https://github.com/gauravkondurwar/aws-projects/assets/135307780/9bdefd4b-92f8-46a5-bfc3-0da0b066b642)
+
+
 
 
  
@@ -53,6 +56,10 @@ Step 1: Open AWS Console and create one EC2 Instance.
 
 Step 2: Create an IAM policy and execution role for  Lambda function
 1:    Create an IAM policy using the JSON policy editor
+![image](https://github.com/gauravkondurwar/aws-projects/assets/135307780/5cf8e565-e5e4-494c-bc16-219e5e0112f3)
+
+
+
 
  
 
@@ -68,6 +75,10 @@ Step 2: Create an IAM policy and execution role for  Lambda function
 
 2: Create an IAM role for Lambda.
      Attach a permissions policy to Lambda,  choose the IAM policy that  just created.
+     ![image](https://github.com/gauravkondurwar/aws-projects/assets/135307780/f313aa60-8d85-4eb4-b869-8ef2772b7b62)
+     ![image](https://github.com/gauravkondurwar/aws-projects/assets/135307780/bfcc49f3-0ab2-47ed-8d85-3dc5cb53d6c4)
+
+
 
  
 
@@ -98,6 +109,8 @@ For Runtime, I have chosen  Python 3.9.
 Under Permissions, expand Change default execution role.
 Under Execution role, choose Use an existing role.
 Under Existing role, choose the IAM role that created.
+![image](https://github.com/gauravkondurwar/aws-projects/assets/135307780/10da704c-6b29-4462-a848-36778038d18f)
+
 
  
 
