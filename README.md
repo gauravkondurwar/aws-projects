@@ -28,6 +28,7 @@ To use Lambda to stop and start EC2 instances at regular intervals, complete the
 
 
 Step 1: Open AWS Console and create one EC2 Instance.
+![image](https://github.com/gauravkondurwar/aws-projects/assets/135307780/79d21c07-f33b-44ec-b4bb-35a3d9e9dd71)
 
 
  
