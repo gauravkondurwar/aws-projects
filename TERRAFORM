@@ -109,10 +109,10 @@ resource "aws_kms_key" "cmk_key" {
 ec2-instance-setup.tf
 # EC2 Instance
 resource "aws_instance" "gkaws_instance" {
-  ami           = "ami-0094635555ed28881"  
+  ami           = "ami-id"  
   instance_type = "t2.micro"     
   key_name      = "AWS-TASK"  
-  subnet_id     = "subnet-08744fecf0e67130e"
+  subnet_id     = "subnet-id"
 
   root_block_device {
     volume_type           = "gp2"
@@ -143,7 +143,7 @@ resource "aws_db_instance" "gkaws_db_instance" {
 
   # Encryption settings
   storage_encrypted       = true
-  kms_key_id              = "arn:aws:kms:eu-central-1:772166561532:key/746f9d9f-a1a3-45f3-ba79-90ffb6162738"  
+  kms_key_id              = "arn:aws:kms:"  
 
   tags = {
     Name = "gkawsDBInstance"
