@@ -1,5 +1,5 @@
 # aws-Lambda-projects(auto-stop-start-ec2)
-Project: How do I stop and start Amazon EC2 instances at regular intervals using Lambda:
+Project: How do I stop and start Amazon EC2 instances at regular intervals using Lambda :
 Description :
 In your IT real-time world, we may need to schedule the EC2 instance or RDS instance to restart at regular intervals; it all depends on the needs of your project (it could be hourly, daily, weekly, or monthly). We have multiple ways to do this job.
 For instance, we can use the corn jobs (Linux) or schedule tasks" (Windows) to run the script. and yet another method for performing a manual restart.
